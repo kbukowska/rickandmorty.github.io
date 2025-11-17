@@ -77,6 +77,10 @@ rickandmorty.github.io/
 - Responsywny grid layout
 - Custom fonty (Orbitron, Space Mono)
 
+## 🚀 Status
+
+![CI/CD Pipeline](https://github.com/kbukowska/rickandmorty.github.io/actions/workflows/ci-cd.yml/badge.svg)
+
 ## 📄 Licencja
 
 MIT
