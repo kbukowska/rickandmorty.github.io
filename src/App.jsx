@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import CharacterCard from './components/CharacterCard'
 import SearchBar from './components/SearchBar'
 import Filters from './components/Filters'
@@ -17,11 +17,7 @@ function App() {
     gender: ''
   })
 
-  useEffect(() => {
-    fetchCharacters()
-  }, [page, searchName, filters])
-
-  const fetchCharacters = async () => {
+  const fetchCharacters = useCallback(async () => {
     setLoading(true)
     setError(null)
     
@@ -51,7 +47,11 @@ function App() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [page, searchName, filters])
+
+  useEffect(() => {
+    fetchCharacters()
+  }, [fetchCharacters])
 
   const handleSearch = (name) => {
     setSearchName(name)

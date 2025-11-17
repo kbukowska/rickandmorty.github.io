@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function CharacterCard({ character }) {
   const getStatusClass = (status) => {
     return status.toLowerCase()
@@ -26,6 +28,22 @@ function CharacterCard({ character }) {
       </div>
     </div>
   )
+}
+
+CharacterCard.propTypes = {
+  character: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    origin: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }).isRequired,
+    location: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
 }
 
 export default CharacterCard

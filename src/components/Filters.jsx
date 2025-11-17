@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function Filters({ filters, onFilterChange }) {
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -47,6 +49,15 @@ function Filters({ filters, onFilterChange }) {
       </select>
     </div>
   )
+}
+
+Filters.propTypes = {
+  filters: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired
+  }).isRequired,
+  onFilterChange: PropTypes.func.isRequired
 }
 
 export default Filters
